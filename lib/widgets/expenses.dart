@@ -14,28 +14,29 @@ class Expenses extends StatefulWidget {
 class _ExpensesState extends State<Expenses> {
   final List<Expense> expenses = [
     Expense(
-        amount: 898,
-        title: "gated",
+        amount: 300,
+        title: "Home Alone",
         category: Category.leisure,
         date: DateTime.now()),
     Expense(
-        amount: 788,
-        title: "gated",
+        amount: 1500,
+        title: "BBQ Nation",
         category: Category.food,
         date: DateTime.now()),
     Expense(
-        amount: 7898,
-        title: "gated",
-        category: Category.food,
+        amount: 8000,
+        title: "Business Models",
+        category: Category.work,
         date: DateTime.now()),
     Expense(
-        amount: 7,
-        title: "gated",
-        category: Category.food,
+        amount: 12000,
+        title: "Delhi",
+        category: Category.travel,
         date: DateTime.now()),
   ];
   void _showOverlay() {
     showModalBottomSheet(
+      useSafeArea: true,
       context: context,
       isScrollControlled: true,
       builder: (ctx) => ModalOverlay(_addExpense),
@@ -70,6 +71,8 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    print(width);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Expenses"),
@@ -82,13 +85,20 @@ class _ExpensesState extends State<Expenses> {
           ),
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Chart(expenses: expenses),
-          ExpenseList(expenses: expenses, onDismiss: _removeExpense),
-        ],
-      ),
+      body: width < 600
+          ? Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Chart(expenses: expenses),
+                ExpenseList(expenses: expenses, onDismiss: _removeExpense),
+              ],
+            )
+          : Row(
+              children: [
+                Expanded(child: Chart(expenses: expenses)),
+                ExpenseList(expenses: expenses, onDismiss: _removeExpense),
+              ],
+            ),
     );
   }
 }
