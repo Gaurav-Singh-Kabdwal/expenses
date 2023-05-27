@@ -15,7 +15,7 @@ class _ExpensesState extends State<Expenses> {
   final List<Expense> expenses = [
     Expense(
         amount: 300,
-        title: "Home Alone",
+        title: "Avengers",
         category: Category.leisure,
         date: DateTime.now()),
     Expense(
