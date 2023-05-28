@@ -72,7 +72,7 @@ class _ExpensesState extends State<Expenses> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    print(width);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Expenses"),
