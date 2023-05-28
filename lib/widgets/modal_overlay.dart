@@ -234,7 +234,8 @@ class _ModalOverlayState extends State<ModalOverlay> {
                                   ? "No date selected"
                                   : formatter.format(_selectedDate!),
                               style: TextStyle(
-                                color: Theme.of(context).colorScheme.onPrimary,
+                                color:
+                                    Theme.of(context).colorScheme.surfaceTint,
                               ),
                             ),
                             IconButton(
@@ -272,7 +273,7 @@ class _ModalOverlayState extends State<ModalOverlay> {
                                 ? "No date selected"
                                 : formatter.format(_selectedDate!),
                             style: TextStyle(
-                              color: Theme.of(context).colorScheme.onPrimary,
+                              color: Theme.of(context).colorScheme.surfaceTint,
                             ),
                           ),
                           const SizedBox(
